@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://localhost:8071
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.example: DEBUG
